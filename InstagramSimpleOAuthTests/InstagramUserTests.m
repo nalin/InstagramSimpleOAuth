@@ -6,18 +6,18 @@
 #import "InstagramSimpleOAuth.h"
 
 
-SpecBegin(InstagramUserTests)
+SpecBegin(IGUserTests)
 
-describe(@"InstagramUser", ^{
-    __block InstagramUser *user;
+describe(@"IGUser", ^{
+    __block IGUser *user;
     
     beforeEach(^{
-        user = [[InstagramUser alloc] initWithDictionary:[FakeInstagramOAuthResponse userResponse]];
+        user = [[IGUser alloc] initWithDictionary:[FakeInstagramOAuthResponse userResponse]];
     });
     
     describe(@"init", ^{
         it(@"calls -initWithInstagramAuthResponse: with nil parameters", ^{
-            user = [[InstagramUser alloc] init];
+            user = [[IGUser alloc] init];
             expect(user.userID).to.beNil();
             expect(user.username).to.beNil();
             expect(user.fullName).to.beNil();

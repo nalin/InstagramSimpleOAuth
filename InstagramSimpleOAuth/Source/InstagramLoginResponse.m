@@ -20,16 +20,16 @@
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "InstagramLoginResponse.h"
-#import "InstagramUser.h"
+#import "IGUser.h"
 
 
 NSString *const InstagramAccessTokenKey = @"access_token";
-NSString *const InstagramUserKey = @"user";
+NSString *const IGUserKey = @"user";
 
 @interface InstagramLoginResponse ()
 
 @property (copy, nonatomic, readwrite) NSString *accessToken;
-@property (strong, nonatomic, readwrite) InstagramUser *user;
+@property (strong, nonatomic, readwrite) IGUser *user;
 
 @end
 
@@ -44,7 +44,7 @@ NSString *const InstagramUserKey = @"user";
         if (response) {
             self.accessToken = response[InstagramAccessTokenKey];
             
-            InstagramUser *user = [[InstagramUser alloc] initWithDictionary:response[InstagramUserKey]];
+            IGUser *user = [[IGUser alloc] initWithDictionary:response[IGUserKey]];
             self.user = user;
         }
     }

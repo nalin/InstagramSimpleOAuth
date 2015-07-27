@@ -19,13 +19,34 @@
 //OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@interface InstagramUser : NSObject
+#import "IGUser.h"
 
-@property (copy, nonatomic) NSString *userID;
-@property (copy, nonatomic) NSString *username;
-@property (copy, nonatomic) NSString *fullName;
-@property (strong, nonatomic) NSURL *profilePictureURL;
 
-- (instancetype)initWithDictionary:(NSDictionary *)userResponse;
+NSString *const InstagramIDKey = @"id";
+NSString *const InstagramUsernameKey = @"username";
+NSString *const InstagramFullNameKey = @"full_name";
+NSString *const InstagramProfilePictureKey = @"profile_picture";
 
+@implementation IGUser
+
+#pragma mark - Init Methods
+
+- (instancetype)initWithDictionary:(NSDictionary *)userResponse
+{
+    self = [super init];
+    if (self) {
+        if (userResponse) {
+            self.userID = userResponse[InstagramIDKey];
+            self.username = userResponse[InstagramUsernameKey];
+            self.fullName = userResponse[InstagramFullNameKey];
+            self.profilePictureURL = [NSURL URLWithString:userResponse[InstagramProfilePictureKey]];
+        }
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithDictionary:nil];
+}
 @end

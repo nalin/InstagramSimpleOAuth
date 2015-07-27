@@ -19,12 +19,12 @@
 //OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@class InstagramUser;
+@class IGUser;
 
 @interface InstagramLoginResponse : NSObject
 
 @property (copy, nonatomic, readonly) NSString *accessToken;
-@property (strong, nonatomic, readonly) InstagramUser *user;
+@property (strong, nonatomic, readonly) IGUser *user;
 
 - (instancetype)initWithInstagramOAuthResponse:(NSDictionary *)response;
 
